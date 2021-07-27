@@ -1,0 +1,71 @@
+site_name: Chinaskills
+theme:
+  name: material
+  language: zh
+  features:
+    - toc.integrate
+  icon:
+    repo: fontawesome/brands/github
+repo_url: https://github.com/panxiao81/Chinaskills-Debian
+repo_name: panxiao81/Chinaskills-Debian
+nav:
+  - 本书简介: index.md
+  - Debian 简介: intro.md
+  - 与 RedHat 系的主要区别: diff-with-redhat.md
+  - 安装: install.md
+  - 基础配置:
+      - 本章前言: config.md
+      - 网络: ch5/network.md
+      - 本地用户: ch5/user.md
+      - 时间同步: ch5/ntp.md
+      - sudo: ch5/sudo.md
+      - 挂载点: ch5/mount.md
+  - 软件包:
+      - 本章前言: package.md
+      - deb 包: ch6/deb.md
+      - 包管理器 dpkg: ch6/dpkg.md
+      - 管理前端 APT: ch6/apt.md
+  - Systemd:
+      - 本章前言: systemd.md
+      - Unit 单元: ch7/unit.md
+      - Target 目标: ch7/target.md
+      - Timers 计时器: ch7/timers.md
+      - Journal 日志: ch7/journal.md
+  - 远程登录 SSH:
+      - 本章前言: ssh.md
+      - 基本使用: ch8/basics.md
+      - 修改配置: ch8/config.md
+      - 秘钥登录: ch8/ssh-keygen.md
+  - 防火墙与安全:
+      - IPtables: ch9/iptables.md
+      - 证书认证与 OpenSSL: ch9/ssl.md
+  - 网络与网络服务:
+      - 网络工具组 iproute2: ch10/iproute2.md
+      - 虚拟专用网络: ch10/vpn.md
+      - DHCP: ch10/dhcp.md
+      - DNS: ch10/dns.md
+      - 邮件服务器:
+          - 邮件服务器: ch10/mail.md
+          - postfix: ch10/postfix.md
+          - Dovecot: ch10/dovecot.md
+      - Web Server:
+          - Apache: ch10/apache.md
+          - nginx: ch10/nginx.md
+      - FTP Server:
+          - vsftpd: ch10/vsftpd.md
+          - proftpd: ch10/proftpd.md
+      - NFS Server: ch10/nfs.md
+      - SMB Server With Samba: ch10/smb.md
+      - Proxy: ch10/squid.md
+      - LDAP Server: ch10/ldap.md
+  - 磁盘管理:
+      - 前言: ch11/disk.md
+      - 磁盘分区: ch11/partition.md
+      - RAID: ch11/raid.md
+      - LVM: ch11/lvm.md
+  - X11: x11.md
+  - 实验案例:
+      - 实验案例:
+          - 实验案例: labs.md
+          - 第一套题目与题解: ch13/solves.md
+          - 第一套题目: ch13/tasks.md
