@@ -1,4 +1,4 @@
-# 总览
+# Unit
 
 Unit ( 单元 ) 是 Systemd 管理系统的基本单位，分为：
 
@@ -15,7 +15,7 @@ Unit ( 单元 ) 是 Systemd 管理系统的基本单位，分为：
 
 通常在控制单元时使用文件全名，但在指系统服务单元时可省略  `.service` 扩展名。
 
-# systemctl
+## systemctl
 
 控制 systemd 的主要命令为 `systemctl`，此命令可用于查看系统状态以及管理系统与服务。
 
@@ -58,9 +58,9 @@ $ sudo systemctl enable open-vm-tools.service
 $ sudo systemctl daemon-reload
 ```
 
-# 创建或修改单元文件
+## 创建或修改单元文件
 
-## 创建单元
+### 创建单元
 
 systemd 的系统级单元放在以下两个目录中：
 
@@ -87,7 +87,7 @@ ExecStart=/usr/sbin/foo-daemon
 WantedBy=multi-user.target
 ```
 
-## 修改
+### 修改
 
 如要修改软件包安装后附带的单元，最好不要在原始文件进行修改，而是在 `/etc/systemd/system/<单元名>.d/` 目录中新建 `*.conf` 文件，在文件内部写入要新增或修改的参数。
 

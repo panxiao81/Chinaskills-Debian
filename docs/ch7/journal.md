@@ -1,29 +1,31 @@
+# Journal
+
 传统的系统日志通常使用 `Syslog`，Systemd 使用 Journal 统一管理系统日志。
 
 Journal 的日志是二进制形式保存在硬盘上的，这点让很多人反对使用 Journal，尤其是当系统宕机时，无法方便的查看出错日志。但 Journal 仍可以配合 Syslog 使用，可将 Journal 的日志转发至 Syslog，之后用喜欢的方式进行处理。
 
-# 确保采用日志永久存储
+## 确保采用日志永久存储
 
 默认情况下，Journal 会将日志保存在 `/var/log/journal`，但前提是这个目录存在，如果此目录不存在，则 systemd 不会自动创建该文件夹，并将日志输出至 `/run/systemd/journal`，此目录中的内容会在每次开机时被清空。
 
-## 重建日志保存目录
+### 重建日志保存目录
 
 重建目录应确保目录正确，目录权限正确。
 
-```sh
+```console
 $ sudo mkdir -p /var/log/journal
 $ sudo chown -R :systemd-journal /var/log/journal
 $ sudo chmod 2775 /var/log/journal
 $ sudo systemctl restart systemd-journald.service
 ```
 
-# 查看日志
+## 查看日志
 
 查看 Journal 的日志须使用 `journalctl` 命令。
 
 如不加任何参数，则输出所有日志，但一般我们需要对日志进行过滤，`journalctl` 提供了许多过滤日志的选项，但最常用的是输出特定 systemd 单元的日志信息。
 
-```sh
+```console
 $ journalctl -eu ntp
 Jan 21 03:32:07 debian ntpd[3783]: Soliciting pool server 193.182.111.142
 Jan 21 03:32:18 debian ntpd[3783]: Soliciting pool server 144.76.76.107
@@ -64,23 +66,23 @@ Feb 04 22:25:42 debian ntpd[3783]: leapsecond file ('/usr/share/zoneinfo/leap-se
 - **`-k`**  只显示内核信息
 - **`-u`**  只显示指定的 systemd 单元信息
 
-# 配置文件相关
+## 配置文件相关
 
-对 Journald 的更多配置须修改 `/etc/systemd/journald.conf`，可查看 `journald.conf(5)` 获取完整信息，每次修改配置文件须重启服务：
+对 Journald 的更多配置须修改 `/etc/systemd/journald.conf`，可查看 `man 5 journald.conf` 获取完整信息，每次修改配置文件须重启服务：
 
-```sh
+```console
 $ sudo systemctl restart systemd-journald
 ```
 
-## 限制日志保存大小
+### 限制日志保存大小
 
 默认情况下，Journald 将日志最大保存容量设定为整个磁盘分区的 10%，但上限为 4GB ，如需要改变这一项，则取消注释并修改配置文件中的 `SystemMaxUse` 选项，例如要限制最多使用 50MB，则设定为：
 
-```
+```sh
 SystemMaxUse=50M
 ```
 
-## 将日志转发至 Syslog
+### 将日志转发至 Syslog
 
 Journald 可以与 Syslog 共存且同时工作，并且向下兼容。
 
@@ -97,13 +99,13 @@ $ sudo vi /etc/systemd/journald.conf
 
 取消注释并修改下面一行
 
-```
+```sh
 ForwardToSyslog=yes
 ```
 
 别忘了重启 `systemd-journald.service`
 
-```sh
+```console
 $ sudo systemctl restart systemd-journald
 ```
 

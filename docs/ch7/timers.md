@@ -1,3 +1,5 @@
+# Timers
+
 systemd 自带定时器功能，可用来取代 cron 来执行计划任务。
 
 比起 cron，systemd 的 timers 存在一些优势如下：
@@ -13,8 +15,8 @@ systemd 自带定时器功能，可用来取代 cron 来执行计划任务。
 
 ```sh
 $ sudo apt install systemd-cron
-$ systemctl enable cron.target
-$ systemctl start cron.target
+$ sudo systemctl enable cron.target
+$ sudo systemctl start cron.target
 ```
 
 当然也可以手写 `.timer` 文件，注意，文件名应和对应的 `.service` 文件相同。
