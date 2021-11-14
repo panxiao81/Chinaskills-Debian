@@ -42,6 +42,7 @@ nav:
   - 网络与网络服务:
       - 网络工具组 iproute2: ch10/iproute2.md
       - 虚拟专用网络: ch10/vpn.md
+      - 时间服务器: ch10/ntp.md
       - DHCP: ch10/dhcp.md
       - DNS: ch10/dns.md
       - 邮件服务器:
