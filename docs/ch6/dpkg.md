@@ -1,3 +1,5 @@
+# dpkg 包管理器
+
 `dpkg` 是处理 `deb` 软件包的工具，他被所有基于 Debian 的发行版默认附带。
 
 `dpkg` 与 Red Hat 发行版的 `rpm` 工具相似，属于一类管理工具。
@@ -8,7 +10,7 @@
 
 该软件包可从 Docker 官方源中下载得到，地址为
 
-http://download.docker.com/linux/debian/dists/buster/pool/stable/amd64/containerd.io_1.4.3-1_amd64.deb 
+http://download.docker.com/linux/debian/dists/buster/pool/stable/amd64/containerd.io_1.4.3-1_amd64.deb
 
 如果 Linux 实验环境连通互联网，可直接使用 `curl` 或 `wget` 工具下载。
 
@@ -17,8 +19,7 @@ http://download.docker.com/linux/debian/dists/buster/pool/stable/amd64/container
 ```console
 debian@debian:~$ pwd
 /home/debian
-debian@debian:~$ wget http://download.docker.com/linux/debian/dists/buster/pool/stable/amd64/containerd.io_1.4.3-1_amd64
-.deb
+debian@debian:~$ wget http://download.docker.com/linux/debian/dists/buster/pool/stable/amd64/containerd.io_1.4.3-1_amd64.deb
 --2021-01-13 16:07:06--  http://download.docker.com/linux/debian/dists/buster/pool/stable/amd64/containerd.io_1.4.3-1_amd64.deb
 Resolving download.docker.com (download.docker.com)... 54.239.169.41, 54.239.169.76, 54.239.169.15, ...
 Connecting to download.docker.com (download.docker.com)|54.239.169.41|:80... connected.
@@ -40,7 +41,7 @@ total 27448
 
 对其管理方法如下：
 
-# 安装软件包
+## 安装软件包
 
 使用 `dpkg -i`:
 
@@ -66,7 +67,7 @@ Processing triggers for man-db (2.8.5-2) ...
 
 > 当然，如果你真的知道你在做什么的话当然可以忽略这句话
 
-# 卸载软件包
+## 卸载软件包
 
 有两个卸载选项，分别为 `-r` ( `--remove` ) 与 `-P` ( `--purge` )，前者为卸载软件包但保留应用配置，后者为完全清除，不保留配置。
 
@@ -82,18 +83,18 @@ debian@debian:~$ sudo dpkg -P containerd.io
 Purging configuration files for containerd.io (1.4.3-1) ...
 ```
 
-# 查询 `dpkg` 数据库，检查 `deb` 文件
+## 查询 `dpkg` 数据库，检查 `deb` 文件
 
 一些常用参数整理如下：
 
-| 短参数 | 长参数 | 功能 |
-|-|-|-|
-| `-L` | `--listfiles` | 列出软件包会安装的文件列表 |
-| `-S` | `--search` | 列出哪一个包包含指定的文件 |
-| `-l` | `--list` | 列出本机上已知的包及安装状态 |
-| `-s` | `--status` | 列出包头 ( 即包的详细信息 ) |
-| `-c` | `--contents` | 列出安装包包含的文件 |
-| `-I` | `--info` | 指定文件查看包信息 |
+| 短参数 | 长参数        | 功能                         |
+| ------ | ------------- | ---------------------------- |
+| `-L`   | `--listfiles` | 列出软件包会安装的文件列表   |
+| `-S`   | `--search`    | 列出哪一个包包含指定的文件   |
+| `-l`   | `--list`      | 列出本机上已知的包及安装状态 |
+| `-s`   | `--status`    | 列出包头 ( 即包的详细信息 )  |
+| `-c`   | `--contents`  | 列出安装包包含的文件         |
+| `-I`   | `--info`      | 指定文件查看包信息           |
 
 一些使用例：
 
@@ -289,4 +290,3 @@ debian@debian:~$ dpkg -I containerd.io_1.4.3-1_amd64.deb
  Homepage: https://containerd.io
  Description: An open and reliable container runtime
 ```
-

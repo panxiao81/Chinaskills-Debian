@@ -1,24 +1,26 @@
-使用最小安装 ( 未安装 GUI 情况下 ) 的 Debian 将使用 `network` 网络管理器。
+# 网络
+
+使用最小安装 ( 未安装 GUI 情况下 ) 的 Debian 将使用 `ifupdown` 网络管理器。
 
 而安装 GUI 的情况下则会安装 `NetworkManager`
 
-配置网络的方式与其他 Linux 系统并没有太多区别。
-
 即便是使用最小方式安装的 Debian，也可配置使用 `NetworkManager` 来管理网络。
 
-# network 网络管理器
+## ifupdown 网络管理器
 
-`network` 网络管理器是一直以来 Debian 默认使用的网络管理器。
+`ifupdown` 网络管理器是一直以来 Debian 默认使用的网络管理器。
 
-与早期版本的 Red Hat 发行版类似，`network` 把网络配置写在一个文件内，并从文件内加载配置。
+与早期版本的 Red Hat 发行版类似，`ifupdown` 把网络配置写在一个文件内，并从文件内加载配置。
 
-但与 Red Hat 系发行版不同的是，Red Hat 发行版将网卡配置文件保存在 `/etc/sysconfig/network-scripts/ifcfg-*name*` 文件中，而 Debian 将网络配置文件统一写在 `/etc/network/interfaces` 文件中。
+但与 Red Hat 系发行版不同的是，Red Hat 发行版将网卡配置文件保存在 `/etc/sysconfig/network-scripts/ifcfg-*name*` 文件中，而 Debian 将网络配置文件统一写在 `/etc/network/interfaces` 文件中，并且语法也有所不同。
 
 默认情况下，在一个新安装的 Debian 中，网络是这样配置的，但 Debian 给出的最佳实现是将网络配置分网卡保存到 `/etc/network/interface.d/` 下。
 
 在我的安装好的系统中，网卡默认配置为 DHCP 方式获取 IP 地址，`/etc/network/interfaces` 内容如下：
 
 ```bash
+# /etc/network/interfaces
+
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
@@ -60,6 +62,8 @@ root@debian:~# ip addr
 如需要 DHCP，写作如下：
 
 ```bash
+# /etc/network/interface.d/ens33
+
 auto ens33
 iface ens33 inet dhcp
 ```
@@ -67,6 +71,8 @@ iface ens33 inet dhcp
 如配置静态 IPv4 地址，则写作如下：
 
 ```bash
+# /etc/network/interface.d/ens33
+
 auto ens33
 iface ens33 inet static
   address 192.168.0.3/24  # IP/CIDR 形式的 IP 地址
@@ -76,19 +82,22 @@ iface ens33 inet static
 DNS 信息填入 `/etc/resolv.conf`
 
 ```bash
-$ nameserver 114.114.114.114
+# /etc/resolv.conf
+
+nameserver 114.114.114.114
 ```
 
 重启网卡生效
 
-```sh
-# 重启网卡
-$ ifdown ens33
-$ ifup ens33
+```console
+$ # 重启网卡
+# ifdown ens33
+# ifup ens33
 ```
+
 > 文档： [man interface(5)](http://man.he.net/?topic=interfaces&section=all)
 
-# NetworkManager
+## NetworkManager
 
 NetworkManager 是一个由 GNOME 项目开发的，使得 Linux 的网络配置尽可能简单，开箱即用而开发的软件包。
 
@@ -105,8 +114,8 @@ NetworkManager 与传统的 network 网络管理器不可同时使用，如果�
 
 最小化安装的 Debian 不会安装 NetworkManager，若要使用 NetworkManager，需要安装软件包。
 
-```sh
-$ apt install network-manager
+```console
+# apt install network-manager
 ```
 
 屏幕输出
@@ -171,9 +180,9 @@ root@debian:~#
 
 安装 NetworkManager 后，安装过程提示在原有 `/etc/network/interfaces` 中的网卡不会被自动由 NetworkManager 配置。
 
-## 配置
+### 配置
 
-### 迁移
+#### 迁移
 
 NetworkManager 会带来两个新的网络配置工具，`nmcli` 与 `nmtui` 。
 
@@ -184,11 +193,13 @@ NetworkManager 会带来两个新的网络配置工具，`nmcli` 与 `nmtui` 。
 在继续使用之前，我们将原配置文件的网卡配置注释。
 
 ```console
-$ root@debian:~# vi /etc/network/interfaces
+# vi /etc/network/interfaces
 
 ```
 
 ```bash
+# /etc/network/interfaces
+
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
@@ -207,18 +218,18 @@ iface lo inet loopback
 
 接下来重启 `networking` 与 `network-manager` 服务
 
-```shell
-$ systemctl restart networking
-$ systemctl restart network-manager
+```console
+# systemctl restart networking
+# systemctl restart network-manager
 ```
 
-### nmtui
+#### nmtui
 
 `nmtui` 是一个图形化方式配置网络的工具，易于上手。
 
 在终端中输入
 
-```sh
+```console
 $ nmtui
 ```
 
@@ -252,7 +263,8 @@ $ nmtui
 
 ```
 
-三个选项分别为：
+四个选项分别为：
+
 - 编辑连接
 - 启用连接
 - 设置系统主机名

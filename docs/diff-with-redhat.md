@@ -1,3 +1,5 @@
+# 与 RedHat 系的主要区别
+
 如果你有使用过 `Red Hat` 一类的 Linux 发行版的经验话 ( 包括 `CentOS` 等 )，实际上 `Debian` 与 `Red Hat` 并无非常巨大的区别，毕竟他们都只是一种普通的 Linux 发行版而已。
 
 多数时候，我们使用 Linux 是希望使用这个生态环境下的服务 ( 如 `apache`, `docker` 等 )，这些服务的配置无论是在 `Debian` 下抑或是 `Red Hat` 系的发行版下并无太大区别。

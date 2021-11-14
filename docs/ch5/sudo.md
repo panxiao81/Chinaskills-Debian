@@ -1,20 +1,22 @@
-在 Linux 中，许多操作需要我们通过 `root` 账户权限完成，但我们通常不想开放这个账户，也不希望经常切换用户，因此就有了 `sudo` 命令，他提供我们当需要 `root` 权限时，将权限临时提升为 `root` 执行当前命令来保障权限安全。
+# sudo
+
+在 Linux 中，许多操作需要我们通过 `root` 账户权限完成，但我们通常不想开放这个账户，也不希望经常切换用户，因此就有了 `sudo` 命令，他提供的功能是：当我们需要 `root` 权限时，将权限临时提升为 `root` 执行当前命令来保障权限安全。
 
 在本章节配置好 `sudo` 之后，本书的其他所有操作都将使用普通用户完成。
 
-# 安装 sudo
+## 安装 sudo
 
 首先安装 sudo 软件包：
 
-```sh
-$ apt-get install sudo
+```console
+# apt-get install sudo
 ```
 
 接下来最简单的操作方法是将允许使用 `sudo` 命令的用户加入 `sudo` 组：
 
-```sh
-$ usermod debian -aG sudo
-$ id debian
+```console
+# usermod debian -aG sudo
+# id debian
 uid=1000(debian) gid=1000(debian) groups=1000(debian),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),109(netdev)
 ```
 
@@ -54,7 +56,7 @@ Reading state information... Done
 
 提示输入密码时，输入当前用户 ( `debian` ) 的密码。
 
-# 配置 sudo
+## 配置 sudo
 
 sudo 的配置可以使用 `sudo -ll` 查看，使用 `sudo -lU` 查看特定用户的配置
 
@@ -91,6 +93,8 @@ $ sudo visudo
 在 Debian 中，`visudo` 会默认调用 `nano` 编辑器，如要使用 `vim`，可在 `/etc/sudoers` 中指定：
 
 ```sh
+# /etc/sudoers
+
 # Set default EDITOR to vim, and do not allow visudo to use EDITOR/VISUAL.
 Defaults      editor=/usr/bin/vim, !env_editor
 ```
@@ -115,9 +119,9 @@ Defaults      editor=/usr/bin/vim, !env_editor
 
 `用户名 主机名=/sbin/halt,/sbin/poweroff,/sbin/reboot,/usr/bin/apt`
 
-# 常见问题
+## 常见问题
 
-## 执行 visudo 提示 command not found
+### 执行 visudo 提示 command not found
 
 由于非 root 账户的 `$PATH` 环境变量默认没有 `/sbin` 与 `/usr/sbin` 目录，因此无法直接执行 `sbin` 目录下的文件。
 
@@ -127,20 +131,12 @@ Defaults      editor=/usr/bin/vim, !env_editor
 
 对其他类似的情况 ( 如 执行 `usermod` 一类的命令 ) 也同理。
 
-## 禁用 root 用户
+### 禁用 root 用户
 
 在配置好 sudo 后，可以选择禁用 root 用户，执行：
 
-```sh
+```console
 $ sudo passwd -l root
 ```
 
-如需解锁，执行 `sudo passwd -l root`
-
-或者编辑 `/etc/shadow` 文件，将 `root` 的加密口令替换为 `!`
-
-这样再次启用 `root` 账户时，重新设定密码即可：
-
-```sh
-$ sudo passwd root
-```
+如需解锁，执行 `sudo passwd -u root`
