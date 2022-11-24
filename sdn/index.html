@@ -1,0 +1,1717 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>SDN - Chinaskills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sdn" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Chinaskills" class="md-header__button md-logo" aria-label="Chinaskills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chinaskills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SDN
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/panxiao81/Chinaskills-Debian" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    panxiao81/Chinaskills-Debian
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Chinaskills" class="md-nav__button md-logo" aria-label="Chinaskills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chinaskills
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/panxiao81/Chinaskills-Debian" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    panxiao81/Chinaskills-Debian
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        本书简介
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Debian 简介
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diff-with-redhat/" class="md-nav__link">
+        与 RedHat 系的主要区别
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        安装
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          基础配置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础配置" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          基础配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        本章前言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/network/" class="md-nav__link">
+        网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/user/" class="md-nav__link">
+        本地用户
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/ntp/" class="md-nav__link">
+        时间同步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/sudo/" class="md-nav__link">
+        sudo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/mount/" class="md-nav__link">
+        挂载点
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          软件包
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="软件包" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          软件包
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../package/" class="md-nav__link">
+        本章前言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6/deb/" class="md-nav__link">
+        deb 包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6/dpkg/" class="md-nav__link">
+        包管理器 dpkg
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6/apt/" class="md-nav__link">
+        管理前端 APT
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Systemd
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Systemd" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Systemd
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemd/" class="md-nav__link">
+        本章前言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch7/unit/" class="md-nav__link">
+        Unit 单元
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch7/target/" class="md-nav__link">
+        Target 目标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch7/timers/" class="md-nav__link">
+        Timers 计时器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch7/journal/" class="md-nav__link">
+        Journal 日志
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          远程登录 SSH
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="远程登录 SSH" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          远程登录 SSH
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        本章前言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8/basics/" class="md-nav__link">
+        基本使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8/config/" class="md-nav__link">
+        修改配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8/ssh-keygen/" class="md-nav__link">
+        秘钥登录
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          防火墙与安全
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="防火墙与安全" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          防火墙与安全
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch9/iptables/" class="md-nav__link">
+        IPtables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch9/ssl/" class="md-nav__link">
+        证书认证与 OpenSSL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          网络与网络服务
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="网络与网络服务" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          网络与网络服务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/iproute2/" class="md-nav__link">
+        网络工具组 iproute2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/vpn/" class="md-nav__link">
+        虚拟专用网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/ntp/" class="md-nav__link">
+        时间服务器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/dhcp/" class="md-nav__link">
+        DHCP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_6" type="checkbox" id="__nav_10_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_6">
+          邮件服务器
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="邮件服务器" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_6">
+          <span class="md-nav__icon md-icon"></span>
+          邮件服务器
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/mail/" class="md-nav__link">
+        邮件服务器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/postfix/" class="md-nav__link">
+        postfix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/dovecot/" class="md-nav__link">
+        Dovecot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_7" type="checkbox" id="__nav_10_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_7">
+          Web Server
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web Server" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_7">
+          <span class="md-nav__icon md-icon"></span>
+          Web Server
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/apache/" class="md-nav__link">
+        Apache
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/nginx/" class="md-nav__link">
+        nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8" type="checkbox" id="__nav_10_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_8">
+          FTP Server
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FTP Server" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_8">
+          <span class="md-nav__icon md-icon"></span>
+          FTP Server
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/vsftpd/" class="md-nav__link">
+        vsftpd
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/proftpd/" class="md-nav__link">
+        proftpd
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/nfs/" class="md-nav__link">
+        NFS Server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/smb/" class="md-nav__link">
+        SMB Server With Samba
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/squid/" class="md-nav__link">
+        Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/ldap/" class="md-nav__link">
+        LDAP Server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          磁盘管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="磁盘管理" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          磁盘管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/disk/" class="md-nav__link">
+        前言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/partition/" class="md-nav__link">
+        磁盘分区
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/raid/" class="md-nav__link">
+        RAID
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/lvm/" class="md-nav__link">
+        LVM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../x11/" class="md-nav__link">
+        X11
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SDN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SDN
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opendaylight" class="md-nav__link">
+    OpenDaylight
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openvswitch" class="md-nav__link">
+    OpenVSwitch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mininet" class="md-nav__link">
+    mininet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab" class="md-nav__link">
+    Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mininet_1" class="md-nav__link">
+    安装 mininet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opendaylight_1" class="md-nav__link">
+    部署 OpenDayLight
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mininet_2" class="md-nav__link">
+    使用 mininet 创建拓扑
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          实验案例
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验案例" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          实验案例
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_1" type="checkbox" id="__nav_14_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14_1">
+          实验案例
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验案例" data-md-level="2">
+        <label class="md-nav__title" for="__nav_14_1">
+          <span class="md-nav__icon md-icon"></span>
+          实验案例
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/" class="md-nav__link">
+        实验案例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/solves/" class="md-nav__link">
+        第一套题目与题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/tasks/" class="md-nav__link">
+        第一套题目
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/panxiao81/Chinaskills-Debian/edit/master/docs/sdn.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="sdn">SDN</h1>
+<p>2022 年国赛中新增了 SDN 部分，样题要求出现了使用 mininet 搭建简单的 SDN 拓扑。</p>
+<p>既然对 SDN 有了考察，并且比赛文件中出现了 Virt-Manager 软件，我大胆预测近年的比赛会增加对 KVM 虚拟化的考察。</p>
+<p>由此可以推论，部署 KVM 虚拟机，将其网络挂载到 OVS 一类的考题也是完全可能出现的。</p>
+<p>这些都是题外话，我们来一起看一下本次的样题中出现的 SDN 考察项目。</p>
+<h2 id="_1">介绍</h2>
+<h3 id="opendaylight">OpenDaylight</h3>
+<p>OpenDayLight 是多家网络厂商联合，社区驱动的一款开源的 SDN 控制器，他支持 Rest API 风格的北向接口，支持 <code>Yang</code>, <code>NetConf</code>, <code>OpenFlow</code> 等多种风格的南向接口，是当今开源 SDN 解决方案的主力军。</p>
+<h3 id="openvswitch">OpenVSwitch</h3>
+<p>OpenVSwitch 是一个开源的，社区驱动的，兼容 OpenFlow 协议，支持主要 L2 功能的开源交换机组件。OpenVSwitch 的开发是对标 VMware 分布式虚拟交换机，和 Cisco Nexus 1000V 而设计的，因此被大量应用在开源 IaaS 平台中，例如 OpenStack 等，开源高性能网络方案 DPDK 也移植了 OVS 部分，称作 OVS-DPDK，是当今 Linux 下高性能数据中心网络的主流解决方案。</p>
+<h3 id="mininet">mininet</h3>
+<p>mininet 是一个轻量级的网络平台，利用 mininet 可以快速创建拓扑，进行 SDN 的实验。</p>
+<h2 id="lab">Lab</h2>
+<p>先来看实验要求与拓扑</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>安装opendaylight、mininet、Ovs软件平台。。</li>
+<li>启动OpenDayLight的karaf程序，安装如下组件：odl-restconf、odl-l2switch-switch-ui、odl-mdsal-apidocs、odl-dluxapps-applications。</li>
+<li>使用Mininet和OpenVswitch构建拓扑，连接ODL的6653端口如下拓扑结构：</li>
+</ul>
+<p><img alt="SDN Topology" src="../images/sdn/topo.png" /></p>
+<ul>
+<li>在浏览器上可以访问ODL管理页面查看网元拓扑结构。</li>
+<li>通过OVS手工下发流表，H1可以ping通H3，H1、H3无法ping通H2。</li>
+<li>H1启动HTTP-Server功能，WEB端口为8080，H3作为HTTP-Client，获取H1的html网页配置文件。</li>
+</ul>
+<h3 id="solution">Solution</h3>
+<h4 id="mininet_1">安装 mininet</h4>
+<p>DLBD 1 里没有 mininet，但实际网络源里是有的，也许在 DLBD 2 里会有</p>
+<p>我安装的时候使用的是网络源</p>
+<p>尽管赛题里，这个节点是在 CentOS 运行的，但我认为在 CentOS 上考这道题的可能性很小。</p>
+<p>这道题不可能放在 CentOS 上做，CentOS 必须从源码安装，mininet 也没有给出对 CentOS 的明确支持。连 mininet 的安装脚本也没有支持 CentOS，CentOS 也没有 OpenVSwitch 的包。</p>
+<p>换句话说，如果这道题要在 CentOS 完成，不但所有依赖包都要从源码编译，而且也不保证可用性，而使用 Debian 则会很简单</p>
+<pre><code class="language-sh">$ apt install mininet
+# openvswitch 会作为 mininet 的依赖安装
+</code></pre>
+<h4 id="opendaylight_1">部署 OpenDayLight</h4>
+<p>提醒一句，OpenDayLight 版本太新是没有所需的功能的，最高只能使用 0.7.3 即 Nitrogen 版本</p>
+<p>下载地址为 <a href="https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.7.3/karaf-0.7.3.tar.gz">这里</a></p>
+<p>上传 OpenDayLight 到主机，解压</p>
+<pre><code class="language-sh">$ tar -xvf karaf-0.7.3.tar.gz
+</code></pre>
+<p>OpenDaylight 使用 Java，先安装 JRE</p>
+<p>现在出现了一个问题</p>
+<p>0.7.3 版本的 ODL 需要 JRE 8，但 Debian 的源里不提供 JDK 8，安装 JRE 11 是不支持的。</p>
+<p>CentOS 确实会提供 JDK 8，安装 <code>java-1.8.0-openjdk-headless</code> 即可。</p>
+<p>若实在有需求，可将 mininet 和 ODL 装在不同主机上</p>
+<pre><code>$ yum install java-1.8.0-openjdk-headless
+</code></pre>
+<p>或者可以搜索一下 <code>jre</code> 看是否有对应版本</p>
+<p>由于无需运行带有 GUI 的 Java 程序，安装无头模式的 JRE 即可</p>
+<p>cd 进解压的目录，启动 OpenDaylight 并登录进 OpenDayLight CLI</p>
+<pre><code class="language-sh">$ cd karaf-0.7.3/
+$ ./bin/start
+$ ./bin/client
+</code></pre>
+<p>在这个 CLI 界面当中也可以管理 OpenDayLight，首先安装必要的功能</p>
+<p>首先可以先列出支持的功能列表</p>
+<pre><code class="language-sh">$ feature:list
+</code></pre>
+<p>安装需求文档中需要的功能</p>
+<pre><code class="language-sh">$ feature:install odl-restconf odl-l2switch-switch-ui odl-m dsal-apidocs odl-dluxapps-applications
+</code></pre>
+<p>安装完成后即可使用 <code>logout</code> 退出</p>
+<p>打开浏览器，访问 <code>:8181/index.html</code> 即可打开 WebUI，默认用户名和密码为 <code>admin/admin</code></p>
+<h4 id="mininet_2">使用 mininet 创建拓扑</h4>
+<p>接下来用 mininet 创建网络拓扑</p>
+<p>好在这个拓扑非常简单，不需要我们写 Python 脚本也可以完成</p>
+<pre><code class="language-sh">$ mn --topo=single,3 --controller=remote,ip=127.0.0.1 --switch=ovs,protocols=OpenFlow13
+</code></pre>
+<p>启动后，在 OpenDayLight 的 UI 中应该能看到一台 OpenFlow 交换机。</p>
+<p><img alt="OpenDayLoght WebUI" src="../images/sdn/webui.png" /></p>
+<p>查看交换机信息，可以使用 <code>ovs-vsctl</code> 命令，在 mininet 中，在执行的命令前面加上 <code>sh</code> 即可运行系统命令</p>
+<pre><code class="language-sh">mininet&gt; sh ovs-vsctl show
+24e49e35-e6f2-447e-8815-836b6d53f67d
+    Bridge s1
+        Controller &quot;tcp:127.0.0.1:6653&quot;
+            is_connected: true
+        Controller &quot;ptcp:6654&quot;
+        fail_mode: secure
+        Port s1-eth3
+            Interface s1-eth3
+        Port s1
+            Interface s1
+                type: internal
+        Port s1-eth1
+            Interface s1-eth1
+        Port s1-eth2
+            Interface s1-eth2
+    ovs_version: &quot;2.13.5&quot;
+</code></pre>
+<p>根据题意，我们需要用 OVS 手动下发流表，对于这个拓扑，只需要让 h1 和 h3 能够通信，因此只需要简单的让 h1 发送的数据丢给 h3，h3 的数据丢给 h1 即可。</p>
+<p>在 mininet 的 CLI 中，创建流表</p>
+<pre><code class="language-sh">mininet&gt; dpctl add-flow in_port=1,actions=output:3
+*** s1 ------------------------------------------------------------------------
+mininet&gt; dpctl add-flow in_port=3,actions=output:1
+*** s1 ------------------------------------------------------------------------
+</code></pre>
+<p>检测连通性，同样是在 mininet 中进行</p>
+<pre><code class="language-sh">mininet&gt; h1 ping h3
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 字节，来自 10.0.0.3: icmp_seq=1 ttl=64 时间=2.75 毫秒
+64 字节，来自 10.0.0.3: icmp_seq=2 ttl=64 时间=0.647 毫秒
+64 字节，来自 10.0.0.3: icmp_seq=3 ttl=64 时间=0.059 毫秒
+64 字节，来自 10.0.0.3: icmp_seq=4 ttl=64 时间=0.073 毫秒
+^C
+--- 10.0.0.3 ping 统计 ---
+已发送 4 个包， 已接收 4 个包, 0% 包丢失, 耗时 3045 毫秒
+rtt min/avg/max/mdev = 0.059/0.883/2.754/1.105 ms
+</code></pre>
+<p>而对于 h2</p>
+<pre><code class="language-sh">mininet&gt; h1 ping h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+^C
+--- 10.0.0.2 ping 统计 ---
+已发送 3 个包， 已接收 0 个包, 100% 包丢失, 耗时 2040 毫秒
+</code></pre>
+<p>可以检查一下流表</p>
+<pre><code class="language-sh">mininet&gt; dpctl dump-flows
+*** s1 ------------------------------------------------------------------------
+ cookie=0x2b00000000000000, duration=1146.267s, table=0, n_packets=2, n_bytes=140, priority=2,in_port=&quot;s1-eth3&quot; actions=output:&quot;s1-eth1&quot;,output:&quot;s1-eth2&quot;,CONTROLLER:65535
+ cookie=0x2b00000000000001, duration=1146.267s, table=0, n_packets=2, n_bytes=140, priority=2,in_port=&quot;s1-eth1&quot; actions=output:&quot;s1-eth3&quot;,output:&quot;s1-eth2&quot;,CONTROLLER:65535
+ cookie=0x2b00000000000002, duration=1146.267s, table=0, n_packets=2, n_bytes=140, priority=2,in_port=&quot;s1-eth2&quot; actions=output:&quot;s1-eth3&quot;,output:&quot;s1-eth1&quot;,CONTROLLER:65535
+ cookie=0x0, duration=199.699s, table=0, n_packets=9, n_bytes=602, in_port=&quot;s1-eth1&quot; actions=output:&quot;s1-eth3&quot;
+ cookie=0x0, duration=185.006s, table=0, n_packets=6, n_bytes=476, in_port=&quot;s1-eth3&quot; actions=output:&quot;s1-eth1&quot;
+ cookie=0x2b00000000000000, duration=1147.829s, table=0, n_packets=0, n_bytes=0, priority=100,dl_type=0x88cc actions=CONTROLLER:65535
+ cookie=0x2b00000000000000, duration=1147.844s, table=0, n_packets=0, n_bytes=0, priority=0 actions=drop
+</code></pre>
+<p>最后是开启简单 HTTP Server 测试</p>
+<p>这个 HTTP Server 可以用 Python 的内置模块完成，根据 Python 的版本不同，包名会有变化，我这里是 Python 2，可以检验一下</p>
+<pre><code class="language-sh">mininet&gt; py sys.version
+2.7.18 (default, Mar  8 2021, 13:02:45)
+[GCC 9.3.0]
+</code></pre>
+<p>如上所示，我这里是 Python 2，因此使用下面命令在 h1 上开启 HTTP Server</p>
+<pre><code class="language-sh">mininet&gt; h1 python -m SimpleHTTPServer &amp;
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+</code></pre>
+<p>并在 h3 上访问</p>
+<pre><code class="language-sh">mininet&gt; h3 wget -O - h1
+--2022-04-04 02:44:25--  http://10.0.0.1/
+正在连接 10.0.0.1:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度： 1061 (1.0K) [text/html]
+正在保存至: “STDOUT”
+
+-                     0%[                    ]       0  --.-KB/s               &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;Directory listing for /&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Directory listing for /&lt;/h1&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;bin/&quot;&gt;bin/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;build.url&quot;&gt;build.url&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;configuration/&quot;&gt;configuration/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;CONTRIBUTING.markdown&quot;&gt;CONTRIBUTING.markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;data/&quot;&gt;data/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;deploy/&quot;&gt;deploy/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;etc/&quot;&gt;etc/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;instances/&quot;&gt;instances/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;journal/&quot;&gt;journal/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;karaf.pid&quot;&gt;karaf.pid&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;lib/&quot;&gt;lib/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;LICENSE&quot;&gt;LICENSE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;lock&quot;&gt;lock&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;patches/&quot;&gt;patches/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;README.markdown&quot;&gt;README.markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;snapshots/&quot;&gt;snapshots/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;system/&quot;&gt;system/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;taglist.log&quot;&gt;taglist.log&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+-                   100%[===================&gt;]   1.04K  --.-KB/s    用时 0s
+
+2022-04-04 02:44:25 (88.1 MB/s) - 已写入至标准输出 [1061/1061]
+</code></pre>
+<p>实验结束后，在 mininet 命令行内输入 <code>EOF</code> 即可清理环境退出。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../x11/" class="md-footer__link md-footer__link--prev" aria-label="上一页: X11" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              X11
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../labs/" class="md-footer__link md-footer__link--next" aria-label="下一页: 实验案例" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              实验案例
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
